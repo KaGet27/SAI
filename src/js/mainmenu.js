@@ -6,6 +6,7 @@ function main(){
 	var scene = new THREE.Scene();
 	var keyboard= new THREEx.KeyboardState();
 	var ambientLight=new THREE.AmbientLight(0xFFFFFF,1);
+	var directionLight=new THREE.DirectionalLight(0xdddddd,4);
 	scene.add(ambientLight);
 
 	//Scene
@@ -36,21 +37,22 @@ var spacePv=1;
 spaceship(spacePv,spaceTaille,ambientLight,scene);
 
 // asteroids
-var textureaste=new THREE.TextureLoader().load('src/medias/models/Asteroids/normal.jpg');
-var textureaste1=new THREE.TextureLoader().load('src/medias/models/Asteroids/or.jpg');
-var textureaste2=new THREE.TextureLoader().load('src/medias/models/Asteroids/vert.jpg');
-var textureaste3=new THREE.TextureLoader().load('src/medias/models/Asteroids/rouge.jpg');
+
 // var des asteroids
 var tabAste = [];
 var lvl=1;
 var astePv = 3;
-var taille = 10;
+
+var asteTaille = 10;
 var nbAste = lvl*3;
 
 for (var i = 0; i < nbAste; i++) {
-	tabAste.push(new Asteroid(astePv,taille,textureaste1,scene));
-	tabAste[i].getAsteroid(textureAste(tabAste[i].asteroidManager,tabAste[i].asteTexture,scene,tabAste[i].asteTaille));
-	console.log(tabAste[i].asteroid);
+var asteX=getRandomArbitrary(-100,100);
+var asteZ=getRandomArbitrary(-100,100);
+
+var tabAste =new Asteroid(astePv,asteTaille,asteX,asteZ,ambientLight,scene);
+this.Asteroid.rotationAsteroid;
+
 }
  // Rocket
 var rocketPv=5;

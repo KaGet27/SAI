@@ -1,33 +1,67 @@
-var Asteroid = function (astePv,asteTaille,asteTexture,scene){
+var Asteroid = function (astePv,asteTaille,asteX,asteZ,ambientLight,scene){
   //Asteroid
-	var manager2= new THREE.LoadingManager(chargementAsteroid);
-	this.asteroidManager = new THREE.OBJLoader(manager2);
-	this.astePv = astePv;
-	this.asteTexture = asteTexture;
-	this.asteTaille = asteTaille;
-	this.asteroid =  null;
+var asterotX;
+var asterotZ;
+var asterotY;
 
-	this.getAsteroid = function(object){
-		console.log(object);
-		this.asteroid = object;
+var asteroidGeo = new THREE.DodecahedronGeometry(asteTaille, 1);
+asteroidGeo.vertices.forEach(function(v){
+		v.x += (0-Math.random()*(asteTaille/10));
+		v.y += (0-Math.random()*(asteTaille/1));
+		v.z += (0-Math.random()*(asteTaille/100));
+	})
+var texture = new THREE.TextureLoader();
+var Texture = new THREE.MeshBasicMaterial({ map: texture.load(textureaste())});
+
+
+
+this.Asteroid = new THREE.Mesh(asteroidGeo, Texture);
+scene.add(this.Asteroid, ambientLight);
+this.Asteroid.position.set(asteX,0,asteZ);
+
+
+this.rotationAsteroid = function(asterotX,asterotZ){
+	this.Asteroid.rotation.x += asterotX;
+	this.Asteroid.rotation.y += asterotZ;
+}
+
+this.deplacementAsteroid = function(rotY,speed){
+	this.Asteroid.rotation.y = asterotY;
+	this.Asteroid.position.x -= Math.sin(this.Asteroid.rotation.y) * speed;
+		this.Asteroid.position.z -= -Math.cos(this.Asteroid.rotation.y) * speed;
+}
+
+}
+
+
+
+
+
+function textureaste(){
+	var TextAlea = parseInt(getRandomArbitrary(1,6));
+	console.log(TextAlea);
+	var asteTexture;
+	switch (TextAlea) {
+		case 1:
+		asteTexture='src/medias/models/Asteroids/violet.png';
+
+		break;
+		case 2:
+		asteTexture="src/medias/models/Asteroids/normal.jpg";
+
+		break;
+		case 3:
+		asteTexture="src/medias/models/Asteroids/vert.jpg";
+
+		break;
+		case 4:
+		asteTexture="src/medias/models/Asteroids/rouge.jpg";
+		break;
+		case 5:
+		asteTexture="src/medias/models/Asteroids/or.jpg";
+		break;
 	}
-}
 
-function chargementAsteroid(asteroid,texture,scene){
-	asteroid.traverse(function (child){
-		if(child.isMesh)child.material.map=texture;
-	});
-	scene.add(asteroid);
-}
+	return(asteTexture);
 
-function textureAste(asteroidManager,asteTexture,scene,asteTaille){
-	var x = asteroidManager.load('src/medias/models/Asteroids/A2.obj', function (object){
-		chargementAsteroid(object,asteTexture,scene);
-		object.scale.set(asteTaille,asteTaille,asteTaille);
-		object.position.x=getRandomArbitrary(0,100);
-		object.position.z=getRandomArbitrary(0,100);
-		object.position.y=0;
-
-		return x;
-	});
 }

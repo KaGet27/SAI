@@ -62,14 +62,4 @@ function mvtspaceship (spaceship,keyboard,spaceVelo,accspaceship){
 
 
 
-//méthode permettant de positionner les asteroids de manière aléeatoire
-
-function mvtaste(tabAste){
-	mvtposiaste=true;
-
-while (mvtposiaste==true) {
-	for (var i = 0; i < 2; i++) {
-		console.log(tabAste[i].position.x);
-	}
-}
-}
+//méthode permettant de bouger les asteroids
