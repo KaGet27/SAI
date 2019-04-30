@@ -33,8 +33,13 @@ function initRocket(scene,spaceship,rocketTab){
 function mortRocket(scene,spaceship,rocketTab){
   //gestion mort rocket
   if (globtime>deadrocketTab[0]) {
-    rocketTab.splice(0,1);
-    deadrocketTab.splice(0,1);
+    for (var i = 0; i < rocketTab.length; i++) {
+      scene.remove()
+      rocketTab.splice(0,1);
+      deadrocketTab.splice(0,1);
+      
+    }
+
     }
     return(rocketTab);
 }
