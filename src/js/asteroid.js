@@ -38,7 +38,7 @@ this.deplacementAsteroid = function(rotY,speed){
 
 
 function textureaste(){
-	var TextAlea = parseInt(getRandomArbitrary(1,6));
+	var TextAlea = Randomise();
 	console.log(TextAlea);
 	var asteTexture;
 	switch (TextAlea) {
