@@ -23,7 +23,7 @@ function rapport(spaceship,spaceVelo,accspaceship) {
 	spaceVelo.x+=accspaceship.x*0.3;
 }
 
-function mvtspaceship (spaceship,keyboard,spaceVelo,accspaceship){
+function mvtspaceship (spaceship,keyboard,spaceVelo,accspaceship,scene,rocketTab){
 
 
 	if(keyboard.pressed('z')){
@@ -45,11 +45,10 @@ function mvtspaceship (spaceship,keyboard,spaceVelo,accspaceship){
 	}
 	// gestion du tir
 		if(keyboard.pressed('space')){
-			var rocketPv=5;
-			var rocketTaille=1;
-				var scene = new THREE.Scene();
-			rocket(rocketPv,rocketTaille,scene);
+			rocketTab = chargementRocket(scene,spaceship,rocketTab);
 		}
+
+
 }
 
 

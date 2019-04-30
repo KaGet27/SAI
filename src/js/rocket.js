@@ -1,29 +1,29 @@
 
-var lauch;
 
+function Rocket(rocketTaille,ambientLight,scene,spaceship){
 
-function rocket(rocketPv,rocketTaille,scene){
-var manager3= new THREE.LoadingManager(chargementRocket);
-rocketManager= new THREE.OBJLoader(manager3);
-
-var textureRocket = new THREE.TextureLoader().load( 'src/medias/models/Rocket/rocket.jpg' );
-this.rocketPv = rocketPv;
-this.rocketTaille = rocketTaille;
-this.rocket=null;
-
-
-rocketManager.load('src/medias/models/Rocket/rocket.obj',function(object){this.rocket=object;});
-chargementRocket(textureRocket);
+  var rocketGeo = new THREE.CylinderGeometry( 0.5, 0.5, rocketTaille, 24 );
+  var material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+  var rocket = new THREE.Mesh( rocketGeo, material );
+  rocket.position.copy(spaceship.position);
+  rocket.rotation.x = Math.PI/2;
+  rocket.rotation.z =-(spaceship.rotation.y);
+  scene.add(rocket);
+  return rocket;
 }
 
-function chargementRocket(textureRocket,){
-  lauch.traverse( function ( child ) {
+function chargementRocket(scene,spaceship,rocketTab){
+  var cadenceTir=500;
+  if(globtime > rocketTimer){
+    rocketTimer=Date.now()+cadenceTir;
+    var rocketTaille=5;
+    var ambientLight=new THREE.AmbientLight(0xFFFFFF,1);
+    rocketTab.push(Rocket(rocketTaille,ambientLight,scene,spaceship));
+    return (rocketTab);
+  }
 
-    if( child.isMesh ) child.material.map = textureRocket;
-  });
-  rocket.position.x=spaceship.position.x;
-  rocket.position.z=spaceship.position.z;
-  rocket.scale.set(rocketTaille,rocketTaille,rocketTaille);
-  scene.add(rocket);
+}
+
+function mort(scene,rocketTab,ambientLight){
 
 }

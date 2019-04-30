@@ -1,12 +1,16 @@
 window.addEventListener("load",main);
 
+//Temps
+var globtime;
+var rocketTimer = 0;
+
 function main(){
 
 	//clavier via library
 	var scene = new THREE.Scene();
 	var keyboard= new THREEx.KeyboardState();
 	var ambientLight=new THREE.AmbientLight(0xFFFFFF,1);
-	var directionLight=new THREE.DirectionalLight(0xdddddd,4);
+
 	scene.add(ambientLight);
 
 	//Scene
@@ -45,7 +49,7 @@ spaceship(spacePv,spaceTaille,ambientLight,scene);
 var tabAste = [];
 var lvl=1;
 var astePv = 3;
-var asteTaille = 10;
+var asteTaille = 15;
 var nbAste = lvl*3;
 
 
@@ -73,6 +77,7 @@ function gestionAsteroid() {
  // Rocket
 var rocketPv=5;
 var rocketTaille=10;
+var rocketTab = [];
 //rocket(rocketPv,rocketTaille,scene);
 
 
@@ -95,10 +100,11 @@ var controls = new THREE.OrbitControls(camera);
 		scene.add(skyBox);
 
 			function animate() {
+				globtime = Date.now();
 				requestAnimationFrame( animate );
 				gestionAsteroid();
 				velocity(spaceship,spaceVelo);
-				mvtspaceship(spaceship,keyboard,spaceVelo,accspaceship);
+				mvtspaceship(spaceship,keyboard,spaceVelo,accspaceship,scene,rocketTab);
 
 
 				renderer.render( scene, camera);
