@@ -1,4 +1,4 @@
-
+var deadrocketTab=[];
 
 function Rocket(rocketTaille,ambientLight,scene,spaceship){
 
@@ -33,8 +33,8 @@ function initRocket(scene,spaceship,rocketTab){
 function mortRocket(scene,spaceship,rocketTab){
   //gestion mort rocket
   if (globtime>deadrocketTab[0]) {
-    rocketTab.splice(1,0);
-    deadrocketTab.splice(1,0);
+    rocketTab.splice(0,1);
+    deadrocketTab.splice(0,1);
     }
     return(rocketTab);
 }

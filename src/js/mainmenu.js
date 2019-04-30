@@ -3,7 +3,7 @@ window.addEventListener("load",main);
 //Temps
 var globtime;
 var rocketTimer = 0;
-var deadrocketTab=[];
+
 
 
 function main(){
@@ -108,7 +108,7 @@ var controls = new THREE.OrbitControls(camera);
 				gestionAsteroid();
 				velocity(spaceship,spaceVelo);
 				mouvement(spaceship,keyboard,spaceVelo,accspaceship,scene,rocketTab,deadrocketTab);
-				déplacementRocket(rocketTab);
+
 				mortRocket(scene,spaceship,rocketTab);
 
 
