@@ -12,18 +12,40 @@ function Rocket(rocketTaille,ambientLight,scene,spaceship){
   return rocket;
 }
 
-function chargementRocket(scene,spaceship,rocketTab){
+
+
+function initRocket(scene,spaceship,rocketTab){
   var cadenceTir=500;
+  var tmprocket =3000;
+
+  //2rocket.s-1
   if(globtime > rocketTimer){
     rocketTimer=Date.now()+cadenceTir;
     var rocketTaille=5;
     var ambientLight=new THREE.AmbientLight(0xFFFFFF,1);
     rocketTab.push(Rocket(rocketTaille,ambientLight,scene,spaceship));
-    return (rocketTab);
-  }
+    deadrocketTab.push(Date.now()+3000);
+    }
 
+  return (rocketTab);
 }
 
-function mort(scene,rocketTab,ambientLight){
+function mortRocket(scene,spaceship,rocketTab){
+  //gestion mort rocket
+  if (globtime>deadrocketTab[0]) {
+    rocketTab.splice(1,0);
+    deadrocketTab.splice(1,0);
+    }
+    return(rocketTab);
+}
 
+
+//gestion deplacement rocket
+function déplacementRocket(rocketTab){
+  if (rocketTab>0) {
+        for (var i = 0; i < rocketTab.length; i++) {
+          rocketTab[i].position.x+=5;
+        }
+  }
+  return(rocketTab);
 }

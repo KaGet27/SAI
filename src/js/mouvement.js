@@ -23,7 +23,7 @@ function rapport(spaceship,spaceVelo,accspaceship) {
 	spaceVelo.x+=accspaceship.x*0.3;
 }
 
-function mvtspaceship (spaceship,keyboard,spaceVelo,accspaceship,scene,rocketTab){
+function mouvement (spaceship,keyboard,spaceVelo,accspaceship,scene,rocketTab){
 
 
 	if(keyboard.pressed('z')){
@@ -45,20 +45,8 @@ function mvtspaceship (spaceship,keyboard,spaceVelo,accspaceship,scene,rocketTab
 	}
 	// gestion du tir
 		if(keyboard.pressed('space')){
-			rocketTab = chargementRocket(scene,spaceship,rocketTab);
+			rocketTab = initRocket(scene,spaceship,rocketTab);
+
 		}
-
-
+			
 }
-
-
-
-
-
-
-
-
-
-
-
-//méthode permettant de bouger les asteroids
