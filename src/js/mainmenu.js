@@ -48,21 +48,24 @@ var astePv = 3;
 var asteTaille = 10;
 var nbAste = lvl*3;
 
+
+
 	for (var i = 0; i < nbAste; i++) {
 	var asteX=getRandomArbitrary(-100,100);
 	var asteZ=getRandomArbitrary(-100,100);
-	tabAste[i] =new Asteroid(astePv,asteTaille,asteX,asteZ,ambientLight,scene);
-	console.log(tabAste[i]);
+	var asterotY=getRandomArbitrary(-100,100);
+	tabAste[i] =new Asteroid(astePv,asteTaille,asteX,asteZ,asterotY,ambientLight,scene);
 }
+
 function gestionAsteroid() {
 		var asterotX=0.02;
-		var asterotY=0.02;
-	for (var i = 0; i < nbAste; i++) {
-	tabAste[i].rotationAsteroid(asterotX,asterotY);
-
+		var asterotZ=0.02;
+		var vitAste=0.15;
+						for (var i = 0; i < nbAste; i++) {
+						tabAste[i].rotationAste(asterotX,asterotZ);
+						tabAste[i].deplacementAste(tabAste[i].asterotY,vitAste);
+						}
 	}
-
-		}
 
 
 

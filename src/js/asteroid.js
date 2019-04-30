@@ -1,8 +1,10 @@
-var Asteroid = function (astePv,asteTaille,asteX,asteZ,ambientLight,scene){
+var Asteroid = function (astePv,asteTaille,asteX,asteZ,asterotY,ambientLight,scene){
   //Asteroid
-var asterotX=1;
-var asterotZ=1;
-var asterotY=1;
+this.asterotX=1;
+this.asterotZ=1;
+this.asterotY = asterotY;
+
+
 
 var asteroidGeo = new THREE.DodecahedronGeometry(asteTaille, 1);
 asteroidGeo.vertices.forEach(function(v){
@@ -20,25 +22,18 @@ scene.add(this.Asteroid, ambientLight);
 this.Asteroid.position.set(asteX,0,asteZ);
 
 
-this.rotationAsteroid = function(asterotX,asterotY){
+this.rotationAste = function(asterotX,asterotZ){
 	this.Asteroid.rotation.x += asterotX;
-	this.Asteroid.rotation.y += asterotY;
+	this.Asteroid.rotation.z += asterotZ;
 }
 
-this.deplacementAsteroid = function(rotY,vitAste){
-	var vitAste=0.01;
+this.deplacementAste = function(asterotY,vitAste){
 	this.Asteroid.rotation.y = asterotY;
 	this.Asteroid.position.x -= Math.sin(this.Asteroid.rotation.y) * vitAste;
 		this.Asteroid.position.z -= -Math.cos(this.Asteroid.rotation.y) * vitAste;
 }
 
 }
-
-
-
-
-
-
 
 
 //function texture aléatoire
