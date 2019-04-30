@@ -36,24 +36,37 @@ var spacePv=1;
 
 spaceship(spacePv,spaceTaille,ambientLight,scene);
 
+
+
+//function genration astéroid
 // asteroids
 
 // var des asteroids
 var tabAste = [];
 var lvl=1;
 var astePv = 3;
-
 var asteTaille = 10;
 var nbAste = lvl*3;
 
-for (var i = 0; i < nbAste; i++) {
-var asteX=getRandomArbitrary(-100,100);
-var asteZ=getRandomArbitrary(-100,100);
-
-var tabAste =new Asteroid(astePv,asteTaille,asteX,asteZ,ambientLight,scene);
-this.Asteroid.rotationAsteroid;
-
+	for (var i = 0; i < nbAste; i++) {
+	var asteX=getRandomArbitrary(-100,100);
+	var asteZ=getRandomArbitrary(-100,100);
+	tabAste[i] =new Asteroid(astePv,asteTaille,asteX,asteZ,ambientLight,scene);
+	console.log(tabAste[i]);
 }
+function gestionAsteroid() {
+		var asterotX=0.02;
+		var asterotY=0.02;
+	for (var i = 0; i < nbAste; i++) {
+	tabAste[i].rotationAsteroid(asterotX,asterotY);
+
+	}
+
+		}
+
+
+
+
  // Rocket
 var rocketPv=5;
 var rocketTaille=10;
@@ -80,9 +93,13 @@ var controls = new THREE.OrbitControls(camera);
 
 			function animate() {
 				requestAnimationFrame( animate );
-				renderer.render( scene, camera);
+				gestionAsteroid();
 				velocity(spaceship,spaceVelo);
 				mvtspaceship(spaceship,keyboard,spaceVelo,accspaceship);
+
+
+				renderer.render( scene, camera);
+
 
 
 			}
