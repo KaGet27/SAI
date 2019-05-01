@@ -48,7 +48,7 @@ spaceship(spacePv,spaceTaille,ambientLight,scene);
 // asteroids
 
 // var des asteroids
-var tabAste = [];
+
 var lvl=1;
 var astePv = 3;
 var asteTaille = 15;
@@ -79,7 +79,7 @@ function gestionAsteroid() {
  // Rocket
 var rocketPv=5;
 var rocketTaille=10;
-var rocketTab = [];
+
 
 //rocket(rocketPv,rocketTaille,scene);
 
@@ -105,11 +105,18 @@ var controls = new THREE.OrbitControls(camera);
 			function animate() {
 				globtime = Date.now();
 				requestAnimationFrame( animate );
+				//gestion asteroids
 				gestionAsteroid();
-				velocity(spaceship,spaceVelo);
-				mouvement(spaceship,keyboard,spaceVelo,accspaceship,scene,rocketTab,deadrocketTab);
 
-				mortRocket(scene,spaceship,rocketTab);
+				//animate Vaisseau
+				velocity(spaceship,spaceVelo);
+
+				// animate mvt des objet
+				mouvement(spaceship,keyboard,spaceVelo,accspaceship,scene,);
+
+				//gestion des tires
+				déplacementRocket(scene,spaceship);
+				mortRocket(scene,spaceship);
 
 
 				renderer.render( scene, camera);

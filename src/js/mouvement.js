@@ -23,7 +23,7 @@ function rapport(spaceship,spaceVelo,accspaceship) {
 	spaceVelo.x+=accspaceship.x*0.3;
 }
 
-function mouvement (spaceship,keyboard,spaceVelo,accspaceship,scene,rocketTab){
+function mouvement (spaceship,keyboard,spaceVelo,accspaceship,scene){
 
 
 	if(keyboard.pressed('z')){
@@ -45,8 +45,9 @@ function mouvement (spaceship,keyboard,spaceVelo,accspaceship,scene,rocketTab){
 	}
 	// gestion du tir
 		if(keyboard.pressed('space')){
-			rocketTab = initRocket(scene,spaceship,rocketTab);
+			rocketTab = initRocket(scene,spaceship);
+			déplacementRocket(scene,spaceship);
 
 		}
-			
+
 }

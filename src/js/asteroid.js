@@ -1,3 +1,5 @@
+var tabAste = [];
+
 var Asteroid = function (astePv,asteTaille,asteX,asteZ,asterotY,ambientLight,scene){
   //Asteroid
 this.asterotX=1;

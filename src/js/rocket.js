@@ -1,4 +1,7 @@
 var deadrocketTab=[];
+var rocketTab = [];
+var positionYspaceship =[];
+
 
 function Rocket(rocketTaille,ambientLight,scene,spaceship){
 
@@ -14,9 +17,9 @@ function Rocket(rocketTaille,ambientLight,scene,spaceship){
 
 
 
-function initRocket(scene,spaceship,rocketTab){
-  var cadenceTir=500;
-  var tmprocket =3000;
+function initRocket(scene,spaceship){
+  var cadenceTir=1000;
+  var tmprocket =1500;
 
   //2rocket.s-1
   if(globtime > rocketTimer){
@@ -24,33 +27,33 @@ function initRocket(scene,spaceship,rocketTab){
     var rocketTaille=5;
     var ambientLight=new THREE.AmbientLight(0xFFFFFF,1);
     rocketTab.push(Rocket(rocketTaille,ambientLight,scene,spaceship));
-    deadrocketTab.push(Date.now()+3000);
+    deadrocketTab.push(Date.now()+tmprocket);
+    positionYspaceship.push(spaceship.rotation.y);
     }
-
   return (rocketTab);
 }
 
-function mortRocket(scene,spaceship,rocketTab){
+function mortRocket(scene,spaceship){
   //gestion mort rocket
-  if (globtime>deadrocketTab[0]) {
-    for (var i = 0; i < rocketTab.length; i++) {
-      scene.remove()
-      rocketTab.splice(0,1);
-      deadrocketTab.splice(0,1);
-      
-    }
 
+   if (globtime>deadrocketTab[0]) {
+      for (var i = 0; i < rocketTab.length; i++) {
+        scene.remove(rocketTab[i]);
+        deadrocketTab.splice(0,1);
+        rocketTab.splice(0,1);
+        positionYspaceship.splice(0,1);
+      }
     }
     return(rocketTab);
 }
 
-
 //gestion deplacement rocket
-function déplacementRocket(rocketTab){
-  if (rocketTab>0) {
-        for (var i = 0; i < rocketTab.length; i++) {
-          rocketTab[i].position.x+=5;
-        }
-  }
+function déplacementRocket(scene, spaceship){
+
+          for (var i = 0; i < rocketTab.length; i++) {
+          rocketTab[i].position.x+=Math.sin(positionYspaceship[i])*2;
+          rocketTab[i].position.z-= -Math.cos(positionYspaceship[i])*2;
+            }
+
   return(rocketTab);
 }
