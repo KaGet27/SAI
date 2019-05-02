@@ -18,7 +18,9 @@ this.asteX=asteX;
 this.asteZ=asteZ;
 this.taille=taille;
 this.asterotY=asterotY;
-this.deplacementX=getRandomArbitrary
+this.deplacementX=getRandomArbitrary(-0.14,1.14);
+this.deplacementZ=getRandomArbitrary(-0.14,1.14);
+console.log(this.deplacementZ);
 
 
 this.asteType = null;
@@ -65,11 +67,10 @@ this.rotationAste = function(asterotX,asterotZ){
 	this.asteroid.rotation.z += asterotZ;
 }
 
-this.deplacementAste = function(asterotY,vitAste){
-
-	this.asteroid.rotation.y = asterotY;
-	this.asteroid.position.x -= Math.sin(this.asteroid.rotation.y) * vitAste;
-		this.asteroid.position.z -= -Math.cos(this.asteroid.rotation.y) * vitAste;
+this.deplacementAste = function(vitAste){
+		console.log(this.asteroid);
+		this.asteroid.position.x -= this.asteroid.deplacementX;
+		this.asteroid.position.z -= this.asteroid.deplacementZ;
 }
 }
 

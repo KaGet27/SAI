@@ -69,7 +69,7 @@ function gestionAsteroid() {
 		var vitAste=0.1;
 						for (var i = 0; i < tabAste.length; i++) {
 						tabAste[i].rotationAste(asterotX,asterotZ);
-						tabAste[i].deplacementAste(tabAste[i].asterotY,vitAste);
+						tabAste[i].deplacementAste(vitAste);
 						}
 	}
 
