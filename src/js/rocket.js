@@ -18,8 +18,8 @@ function Rocket(rocketTaille,ambientLight,scene,spaceship){
 
 
 function initRocket(scene,spaceship){
-  var cadenceTir=1000;
-  var tmprocket =1500;
+  var cadenceTir=1500;
+  var tmprocket =1000;
 
   //2rocket.s-1
   if(globtime > rocketTimer){
@@ -49,10 +49,10 @@ function mortRocket(scene,spaceship){
 
 //gestion deplacement rocket
 function déplacementRocket(scene, spaceship){
-
+var vitRocket=1.5;
           for (var i = 0; i < rocketTab.length; i++) {
-          rocketTab[i].position.x+=Math.sin(positionYspaceship[i])*2;
-          rocketTab[i].position.z-= -Math.cos(positionYspaceship[i])*2;
+          rocketTab[i].position.x+=Math.sin(positionYspaceship[i])*vitRocket;
+          rocketTab[i].position.z-= -Math.cos(positionYspaceship[i])*vitRocket;
             }
 
   return(rocketTab);

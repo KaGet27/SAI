@@ -1,5 +1,7 @@
 var tabAste = [];
 
+
+
 var Asteroid = function (astePv,asteTaille,asteX,asteZ,asterotY,ambientLight,scene){
   //Asteroid
 this.asterotX=1;
@@ -40,7 +42,7 @@ this.deplacementAste = function(asterotY,vitAste){
 
 //function texture aléatoire
 function textureaste(){
-	var TextAlea = Randomise();
+var TextAlea = Randomise();
 	console.log(TextAlea);
 	var asteTexture;
 	switch (TextAlea) {

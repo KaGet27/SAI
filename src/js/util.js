@@ -25,3 +25,30 @@ if (Random>=0 && Random<65) {
 return(choix);
 
 }
+
+//fonction de base gerant les collisions
+
+
+function collision(objetA,objetB,radiusPlus){
+	if (objetA.position.distanceTo(objetB.position) < radiusPlus)
+		return true;
+}
+
+//fonction supprime un objet pour ne plus avoir d'objet invisible
+function suppressionMesh(scene,geometry,material,mesh){
+	scene.remove(mesh);
+	geometry.dispose();
+	material.dispose();
+	mesh.position.x = undefined;
+	mesh.position.y = undefined;
+	mesh.position.z = undefined;
+	mesh = undefined;
+}
+
+
+
+// function invinsible(){
+//
+// for (var i = 0; i <globtime+5; i++) {
+// globtime+5;
+// }

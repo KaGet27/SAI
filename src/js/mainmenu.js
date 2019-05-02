@@ -106,6 +106,7 @@ var controls = new THREE.OrbitControls(camera);
 				globtime = Date.now();
 				requestAnimationFrame( animate );
 				//gestion asteroids
+
 				gestionAsteroid();
 
 				//animate Vaisseau
@@ -115,8 +116,11 @@ var controls = new THREE.OrbitControls(camera);
 				mouvement(spaceship,keyboard,spaceVelo,accspaceship,scene,);
 
 				//gestion des tires
+
 				déplacementRocket(scene,spaceship);
+				gestionColli(scene);
 				mortRocket(scene,spaceship);
+
 
 
 				renderer.render( scene, camera);
