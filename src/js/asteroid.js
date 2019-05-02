@@ -68,9 +68,11 @@ this.rotationAste = function(asterotX,asterotZ){
 }
 
 this.deplacementAste = function(vitAste){
-		console.log(this.asteroid);
-		this.asteroid.position.x -= this.asteroid.deplacementX;
-		this.asteroid.position.z -= this.asteroid.deplacementZ;
+
+
+
+		this.asteroid.position.x -= this.deplacementX;
+		this.asteroid.position.z -= this.deplacementZ;
 }
 }
 

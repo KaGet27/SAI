@@ -106,10 +106,11 @@ var controls = new THREE.OrbitControls(camera);
 
 			function animate() {
 				globtime = Date.now();
+
 				requestAnimationFrame( animate );
 
 
-				gestionAsteroid();
+
 
 				//animate Vaisseau
 				velocity(spaceship,spaceVelo);
