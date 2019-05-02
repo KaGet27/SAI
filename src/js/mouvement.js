@@ -47,7 +47,10 @@ function mouvement (spaceship,keyboard,spaceVelo,accspaceship,scene){
 		if(keyboard.pressed('space')){
 			rocketTab = initRocket(scene,spaceship);
 			déplacementRocket(scene,spaceship);
+		}
 
+		if(keyboard.pressed('k')){
+			cheatAste(scene);
 		}
 
 }

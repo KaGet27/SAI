@@ -50,8 +50,8 @@ spaceship(spacePv,spaceTaille,ambientLight,scene);
 // var des asteroids
 
 var lvl=1;
-var astePv = 3;
-var asteTaille = 15;
+
+
 var nbAste = lvl*3;
 
 
@@ -60,7 +60,7 @@ var nbAste = lvl*3;
 	var asteX=getRandomArbitrary(-100,100);
 	var asteZ=getRandomArbitrary(-100,100);
 	var asterotY=getRandomArbitrary(-100,100);
-	tabAste[i] =new Asteroid(astePv,asteTaille,asteX,asteZ,asterotY,ambientLight,scene);
+	tabAste[i] =new Asteroid(3,asteTaille,asteX,asteZ,asterotY,ambientLight,scene);
 }
 
 function gestionAsteroid() {
@@ -76,9 +76,11 @@ function gestionAsteroid() {
 
 
 
+
+
  // Rocket
-var rocketPv=5;
-var rocketTaille=10;
+var rocketPv=1;
+var rocketTaille=2;
 
 
 //rocket(rocketPv,rocketTaille,scene);

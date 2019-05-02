@@ -46,7 +46,13 @@ function suppressionMesh(scene,geometry,material,mesh){
 }
 
 
-
+//cheat code destruction asteroids
+function cheatAste(scene){
+    for (var i = 0; i < tabAste.length; i++) {
+      suppressionMesh(scene,tabAste[i].Asteroid.geometry,tabAste[i].Asteroid.material,tabAste[i].Asteroid );
+      tabAste.splice(i,0);
+    }
+}
 // function invinsible(){
 //
 // for (var i = 0; i <globtime+5; i++) {
