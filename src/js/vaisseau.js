@@ -2,7 +2,7 @@
 //Fichier Vaisseau
 
 var spaceship;
-var spaceGod = true;
+var spaceGod = false;
 
 
 

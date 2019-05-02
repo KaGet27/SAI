@@ -49,7 +49,7 @@ function suppressionMesh(scene,geometry,material,mesh){
 //cheat code destruction asteroids
 function cheatAste(scene){
     for (var i = 0; i < tabAste.length; i++) {
-      suppressionMesh(scene,tabAste[i].Asteroid.geometry,tabAste[i].Asteroid.material,tabAste[i].Asteroid );
+      suppressionMesh(scene,tabAste[i].asteroid.geometry,tabAste[i].asteroid.material,tabAste[i].asteroid );
       tabAste.splice(i,0);
     }
 }

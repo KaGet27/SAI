@@ -3,18 +3,22 @@ var tabAste = [];
 var asteTaille = 15;
 var masteTaille=10;
 var sasteTaille=8;
+var astePv=3;
 
 
 
 
-var Asteroid = function (astePv,asteTaille,asteX,asteZ,asterotY,ambientLight,scene){
+var Asteroid = function (Pv,taille,asteX,asteZ,asterotY,ambientLight,scene){
   //Asteroid
 this.asterotX=1;
 this.asterotZ=1;
-this.asterotY = asterotY;
-this.astePv=3;
+this.asterotY=asterotY;
+this.astePv=Pv;
 this.asteX=asteX;
 this.asteZ=asteZ;
+this.taille=taille;
+this.asterotY=asterotY;
+this.deplacementX=getRandomArbitrary
 
 
 this.asteType = null;
@@ -33,7 +37,7 @@ switch (TextAlea) {
 			asteTexture="src/medias/models/Asteroids/vert.jpg";
 			this.asteType = TextAlea;
 		break;
-		case 4:
+		case 4:asteTaille
 			asteTexture="src/medias/models/Asteroids/rouge.jpg";
 			this.asteType = TextAlea;
 		break;
@@ -43,55 +47,59 @@ switch (TextAlea) {
 		break;
 }
 
-var asteGeo = new THREE.DodecahedronGeometry(asteTaille, 1);
+var asteGeo = new THREE.DodecahedronGeometry(taille, 1);
 asteGeo.vertices.forEach(function(v){
-		v.x += (0-Math.random()*(asteTaille/4));
-		v.y += (0-Math.random()*(asteTaille/4));
-		v.z += (0-Math.random()*(asteTaille/4));
+		v.x += (0-Math.random()*(taille/4));
+		v.y += (0-Math.random()*(taille/4));
+		v.z += (0-Math.random()*(taille/4));
 	})
 var texture = new THREE.TextureLoader();
 var Texture = new THREE.MeshBasicMaterial({ map: texture.load(asteTexture)});
 
-this.Asteroid = new THREE.Mesh(asteGeo, Texture);
-scene.add(this.Asteroid, ambientLight);
-this.Asteroid.position.set(asteX,0,asteZ);
+this.asteroid = new THREE.Mesh(asteGeo, Texture);
+scene.add(this.asteroid, ambientLight);
+this.asteroid.position.set(asteX,0,asteZ);
 
 this.rotationAste = function(asterotX,asterotZ){
-	this.Asteroid.rotation.x += asterotX;
-	this.Asteroid.rotation.z += asterotZ;
+	this.asteroid.rotation.x += asterotX;
+	this.asteroid.rotation.z += asterotZ;
 }
 
 this.deplacementAste = function(asterotY,vitAste){
 
-	this.Asteroid.rotation.y = asterotY;
-	this.Asteroid.position.x -= Math.sin(this.Asteroid.rotation.y) * vitAste;
-		this.Asteroid.position.z -= -Math.cos(this.Asteroid.rotation.y) * vitAste;
+	this.asteroid.rotation.y = asterotY;
+	this.asteroid.position.x -= Math.sin(this.asteroid.rotation.y) * vitAste;
+		this.asteroid.position.z -= -Math.cos(this.asteroid.rotation.y) * vitAste;
 }
 }
 
-function touchAste(asteroid,astePv,asteX,asteZ,scene){
-					console.log(astePv);
-					if (astePv==2) {
-							asteTaille=masteTaille;
+function touchAste(asteroid,Pv,asteX,asteZ,asterotY,index,ambientLight,scene){
+
+					if (Pv==2) {
+
+
 						for (var i = 0; i <=2; i++) {
-									console.log("igfsidffsdgfiujh")
-									suppressionMesh(scene,asteroid.geometry,asteroid.material,tabAste[i].Asteroid );
-									tabAste.push(new Asteroid(astePv,asteTaille,asteX,asteZ,asterotY,ambientLight,scene))
-									scene.add(Asteroid);
+									console.log(astePv);
+
+									tabAste.push(new Asteroid(Pv,masteTaille,tabAste[index].asteroid.position.x,tabAste[index].asteroid.position.z,tabAste[index].asteroid.rotation.y,ambientLight,scene));
+									console.log(tabAste[tabAste.length-1].asteroid.position);
+									// tabAste[tabAste.length-1].asteroid.position.copy(tabAste[index].asteroid.position);
+									scene.add(tabAste[tabAste.length-1].asteroid);
+									suppressionMesh(scene,asteroid.geometry,asteroid.material,asteroid);
 								}
 							}
 
-					if (astePv==1) {
-						asteTaille=sasteTaille;
-						for (var i = 0; i <=2; i++) {
-									suppressionMesh(scene,asteroid.geometry,asteroid.material,tabAste[i].Asteroid );
-									tabAste.push(new Asteroid(astePv,asteTaille,asteX,asteZ,asterotY,ambientLight,scene))
-									scene.add(Asteroid);
+					if (Pv==1) {
+									for (var i = 0; i <=2; i++) {
+
+									tabAste.push(new Asteroid(Pv-2,sasteTaille,tabAste[index].asteroid.position.x,tabAste[index].asteroid.position.z,asterotY,ambientLight,scene));
+									scene.add(tabAste.Asteroid);
+									suppressionMesh(scene,asteroid.geometry,asteroid.material,asteroid);
 
 								}
 							}
-						if (astePv==0) {
-						suppressionMesh(scene,asteroid.geometry,asteroid.material,tabAste[i].Asteroid );
+						if (Pv==0) {
+						suppressionMesh(scene,asteroid.geometry,asteroid.material,tabAste[i].asteroid );
 						tabAste.splice(i,0);
 					}
 
