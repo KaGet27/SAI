@@ -17,11 +17,11 @@ asteroidGeo.vertices.forEach(function(v){
 		v.z += (0-Math.random()*(asteTaille/4));
 	})
 var texture = new THREE.TextureLoader();
-var Texture = new THREE.MeshBasicMaterial({ map: texture.load(textureaste())});
+this.Texture = new THREE.MeshBasicMaterial({ map: texture.load(textureaste())});
 
 
 
-this.Asteroid = new THREE.Mesh(asteroidGeo, Texture);
+this.Asteroid = new THREE.Mesh(asteroidGeo, this.Texture);
 scene.add(this.Asteroid, ambientLight);
 this.Asteroid.position.set(asteX,0,asteZ);
 
