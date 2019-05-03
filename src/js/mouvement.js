@@ -51,6 +51,7 @@ function mouvement (spaceship,keyboard,spaceVelo,accspaceship,scene){
 
 		if(keyboard.pressed('k')){
 			cheatAste(scene);
+			sons(1);
 		}
 
 }

@@ -26,6 +26,7 @@ for (var i = 0; i < tabAste.length; i++) {
     for (var j = 0; j <rocketTab.length; j++) {
 
             if (collision(rocketTab[j],tabAste[i].asteroid,15)==true) {
+              sons(2);
                   console.log(tabAste[i].astePv);
                   console.log(tabAste[tabAste.length-1].asteroid.position);
                   touchAste(tabAste[i].asteroid,tabAste[i].astePv-1,tabAste[i].asteroid.position.x ,tabAste[i].asteroid.position.z,tabAste[i].asterotY,i,ambientLight,scene);
