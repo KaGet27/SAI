@@ -111,16 +111,16 @@ var controls = new THREE.OrbitControls(camera);
 
 
 				//animate Vaisseau
-				if (spacedetruit==false) {
+
 					velocity(spaceship,spaceVelo);
-				}
+
 
 
 				// animate mvt des objet
 				mouvement(spaceship,keyboard,spaceVelo,accspaceship,scene,);
 
 				//gestion des tires
-				ecran(spaceship);
+				// ecran(spaceship);
 				déplacementRocket(scene,spaceship);
 				gestionColli(scene,ambientLight);
 				mortRocket(scene,spaceship);

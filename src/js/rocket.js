@@ -6,7 +6,7 @@ var positionYspaceship =[];
 function Rocket(rocketTaille,ambientLight,scene,spaceship){
 
   var geometry = new THREE.CylinderGeometry( 0.5, 0.5, rocketTaille, 24 );
-  var material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+  var material = new THREE.MeshBasicMaterial( {color: 0xff2323} );
   var rocket = new THREE.Mesh( geometry, material );
   rocket.position.copy(spaceship.position);
   rocket.rotation.x = Math.PI/2;

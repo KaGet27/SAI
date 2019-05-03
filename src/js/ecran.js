@@ -1,4 +1,4 @@
-function ecran(spaceship){
+function ecran(){
 
   var largecran=window.innerWidth;
   var hautecran=window.innerHeight;

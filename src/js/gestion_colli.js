@@ -15,12 +15,10 @@ for (var i = 0; i < tabAste.length; i++) {
       tabAste.splice(i,0);
       spacedetruit=true;
       scene.remove(spaceship);
-
-      if (spacedetruit==true) {
         velocity(spaceship,0);
         spaceship.position.set(0,0,-1);
         scene.add(spaceship);
-          }
+
 
 
     }
