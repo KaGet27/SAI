@@ -47,11 +47,13 @@ function mouvement (spaceship,keyboard,spaceVelo,accspaceship,scene){
 		if(keyboard.pressed('space')){
 			rocketTab = initRocket(scene,spaceship);
 			déplacementRocket(scene,spaceship);
+			sons(1);
+
 		}
 
 		if(keyboard.pressed('k')){
 			cheatAste(scene);
-			sons(1);
+
 		}
 
 }
