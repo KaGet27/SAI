@@ -49,7 +49,7 @@ function mortRocket(scene,spaceship){
 
 //gestion deplacement rocket
 function déplacementRocket(scene, spaceship){
-var vitRocket=1.5;
+var vitRocket=3;
           for (var i = 0; i < rocketTab.length; i++) {
           rocketTab[i].position.x+=Math.sin(positionYspaceship[i])*vitRocket;
           rocketTab[i].position.z-= -Math.cos(positionYspaceship[i])*vitRocket;

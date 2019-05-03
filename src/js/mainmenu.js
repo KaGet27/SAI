@@ -17,7 +17,7 @@ function main(){
 
 	//Scene
 	var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 6000 );
-	camera.position.y=150;
+	camera.position.y=300;
 	camera.position.z=-1;
 
 //creation deux deux autres caméra
@@ -107,7 +107,7 @@ var controls = new THREE.OrbitControls(camera);
 				requestAnimationFrame( animate );
 
 
-
+				ecran();
 
 
 				//animate Vaisseau

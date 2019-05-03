@@ -14,8 +14,8 @@ var accspaceship={
 //Méthod pour déplacement du vaisseau
 
 function velocity(spaceship,spaceVelo) {
-	spaceship.position.z +=spaceVelo.z*0.1;
-	spaceship.position.x +=spaceVelo.x*0.1;
+	spaceship.position.z +=spaceVelo.z*0.5;
+	spaceship.position.x +=spaceVelo.x*0.5;
 }
 
 function rapport(spaceship,spaceVelo,accspaceship) {
@@ -47,7 +47,7 @@ function mouvement (spaceship,keyboard,spaceVelo,accspaceship,scene){
 		if(keyboard.pressed('space')){
 			rocketTab = initRocket(scene,spaceship);
 			déplacementRocket(scene,spaceship);
-			sons(1);
+			// sons(1);
 
 		}
 
