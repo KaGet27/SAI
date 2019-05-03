@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Rapport ASTEROID 3D</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+</head>
+<body>
+<div id="wrap">
+  <div id="top">
+    <div class="rights"> </div>
+    <div id="search"> </div>
+    <div class="lefts">
+      <h1>Rapport ASTEROID 3D</h1>
+      <h2>GUICHARROUSSE Paul-Henry</h2>
+    </div>
+  </div>
+  <div id="topmenu">
+    <div class="rights"></div>
+    <div class="lefts">
+      <ul>
+        <li><a href="../index.html">Vaisseau</a></li>
+        <li><a href="Asteroid.html">Asteroid</a></li>
+        <li><a href="Environnement.html">Environnement</a></li>
+        <li><a href="Mouvement.html">Mouvement</a></li>
+        <li><a href="Gestion.html">Gestion Collision</a></li>
+        <li><a href="Rocket.html">Rocket</a></li>
+        <li><a href="Utils.html">Utils</a></li>
+        <li><a href="Sons.html">Sons</a></li>
+        <li><a href="Bilan.html">Bilan</a></li>
+      </ul>
+    </div>
+  </div>
+    <div id="main">
+    </div>
+    <div id="leftside">
+      <h2>Création de notre Object Asteroid et présentation de ses attributs</h2>
+      <p>Pour créer des ennemis pour notre vaisseau, j'ai créer un Object astéroid qui a plusieurs parametres :</p>
+      <ul>
+        <li>Une rotation sur l'axe X : <b>asterotX</b></li>
+        <li>Une rotation sur l'axe Z : <b>asterotZ</b></li>
+        <li>Une rotation sur l'axe Y : <b>asterotY</b></li>
+        <li>Des points de Vies : <b>astePv</b></li>
+        <li>Une position en X : <b>posasteX</b></li>
+        <li>Une position en Z : <b>posasteZ</b></li>
+        <li>Une taille : <b>taille</b></li>
+        <li>Un déplacement en X : <b>deplacementX</b> (choisi de façon aléatoire)</li>
+        <li>Un déplacement en Z : <b>deplacementZ</b>(choisi de façon aléatoire)</li>
+        <li>Un type d'astéroid : <b>asteType</b>qui choisi de facon aléatoire une texture pour l'astéroid à l'aide d'un switch et d'une fonction Randomise (). Cela permettra par la suite que lors de la destruction de l'ennemi le vaisseau acquiert certains bonus</li>
+        </ul>
+        <p>Visuellement cela nous donne :</p>
+        <img src="../images/asteroid_code_1.png"/>
+      </br>
+      <p>A l'aide de THREE.DodecahedronGeometry() je modelise les ennemis et modifie leur vecteur avec .vertices</p>
+      <p>Maintenant que l'on connais nos ennemis il faut pouvoir anticipé (ou pas) leurs mouvements.</p>
+      <p>Je crée de la sorte deux fonctions l'une gérant la rotation de l'astéroid et l'autre sont déplacement</p>
+        <img src="../images/asteroid_code_2.png"/>
+          <h2>Rendu</h2>
+       <p>Voyons maintenant le rendu de la scene avec deux terribles ennemis</p>
+         <p>Un astéroid avec une texture normale, sans effet</p>
+       <img src="../images/asteroidnormale.png"/>
+       <p>Un astéroid avec une texture normale avec effet</p>
+     <img src="../images/asteroidor.png"/>
+      <p>Maintenant que les combattants sont réunis, ils leurs faut un endroit où <a href="Environnement.html">se battrent</a></p>
+
+
+    </div>
+  </div>
+  <div id="footer">
+    <div class="rside">&copy; Copyright 2006, <a href="#"></a>
+  </div>
+</div>
+</body>
+</html>

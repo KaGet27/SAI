@@ -20,7 +20,7 @@ this.taille=taille;
 this.asterotY=asterotY;
 this.deplacementX=getRandomArbitrary(-0.14,0.5);
 this.deplacementZ=getRandomArbitrary(-0.14,0.5);
-console.log(this.deplacementZ);
+
 
 
 this.asteType = null;

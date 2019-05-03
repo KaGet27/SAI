@@ -21,5 +21,28 @@ function ecran(){
 
   }
 
+for (var i = 0; i < tabAste.length; i++) {
+
+
+  if (tabAste[i].asteroid.position.x > largecran/4){
+      tabAste[i].asteroid.position.x -= largecran/2;
+  }
+  else if (tabAste[i].asteroid.position.x < -largecran/4) {
+    tabAste[i].asteroid.position.x += largecran/2;
+  }
+
+
+
+  if (tabAste[i].asteroid.position.z > hautecran/4) {
+    tabAste[i].asteroid.position.z -= hautecran/2;
+
+  }
+  else if (tabAste[i].asteroid.position.z < -hautecran/4) {
+      tabAste[i].asteroid.position.z += hautecran/2;
+
+  }
+
+}
+
 
 }

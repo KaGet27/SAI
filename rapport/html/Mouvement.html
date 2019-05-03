@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Rapport ASTEROID 3D</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+</head>
+<body>
+<div id="wrap">
+  <div id="top">
+    <div class="rights"> </div>
+    <div id="search"> </div>
+    <div class="lefts">
+      <h1>Rapport ASTEROID 3D</h1>
+      <h2>GUICHARROUSSE Paul-Henry</h2>
+    </div>
+  </div>
+  <div id="topmenu">
+    <div class="rights"></div>
+    <div class="lefts">
+      <ul>
+        <li><a href="../index.html">Vaisseau</a></li>
+        <li><a href="Asteroid.html">Asteroid</a></li>
+        <li><a href="Environnement.html">Environnement</a></li>
+        <li><a href="Mouvement.html">Mouvement</a></li>
+        <li><a href="Gestion.html">Gestion Collision</a></li>
+        <li><a href="Rocket.html">Rocket</a></li>
+        <li><a href="Utils.html">Utils</a></li>
+        <li><a href="Sons.html">Sons</a></li>
+        <li><a href="Bilan.html">Bilan</a></li>
+      </ul>
+    </div>
+  </div>
+    <div id="main">
+    <div id="rightside">
+
+      </div>
+    </div>
+    <div id="leftside">
+      <h2>La Gestion des Mouvements</h2>
+      <p>Ici, nous allons expliquer comment les déplacements sont gérer</p>
+      <p>Pour rappel, le mouvement des astéroids est prédéfini aléatoirement dans l'object lui même</p>
+      <p>De ce fait il me reste a expliquer le déplacement de notre Vaisseau, pour cela j'utilise trois fonctions :</p>
+      <ul>
+        <li>La première fonction <b>mouvement()</b> permet dans une premier temps :</li>
+                                      <ul>
+                                        <li>1)D'incrémenter l'accélération du vaisseau en fonction du cosinus et du sinus(du vaisseau en Y) que l'on multiplie par une variable global qui décremente l'inertie. Puis on appel notre fonction deuxième fonction tout en appuyant sur la touche 'Z' du clavier</li>
+                                        <li>2)Lorsque l'on appuie sur 'd' on incrémente la rotation du vaisseau par spaceship.rotation.y +=(-3 * Math.PI)/180 </li>
+                                        <li>3)Lorsque l'on appuie sur 'q' on incrémente la rotation du vaisseau par spaceship.rotation.y -=(-3 * Math.PI)/180 </li>
+                                      </ul>
+        <li>Notre deuxième fonction <b>rapport()</b> permet d'incrémenter une vélocité pour notre vaisseau en fonction de accelration de celui ci</li>
+        <li>Enfin notre dernière fonction <b>velocity()</b> qui prend en paramètre la vélocité du vaisseau. On integre cette fonction dans l'animate</li>
+      </ul>
+
+      <
+      <h2>Apres toutes ces explications voici un aperçu :</h2>
+       <p></p>
+       <img src="../images/mvt_code.png"/>
+      <p>Le déplacement de notre Vaisseau étant terminé il nous reste plus qu'a l'armée pour la <a href="Rocket.html">bataille</a></p>
+
+
+    </div>
+  </div>
+  <div id="footer">
+    <div class="rside">&copy; Copyright 2006, <a href="#"></a>
+  </div>
+</div>
+</body>
+</html>
