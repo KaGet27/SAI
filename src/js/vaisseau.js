@@ -3,6 +3,7 @@
 
 var spaceship;
 var spaceGod = false;
+var spacedetruit=false;
 
 
 

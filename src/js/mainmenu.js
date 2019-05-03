@@ -49,13 +49,10 @@ spaceship(spacePv,spaceTaille,ambientLight,scene);
 
 // var des asteroids
 
+
+
 var lvl=1;
-
-
 var nbAste = lvl*3;
-
-
-
 	for (var i = 0; i < nbAste; i++) {
 	var asteX=getRandomArbitrary(-100,100);
 	var asteZ=getRandomArbitrary(-100,100);
@@ -63,7 +60,9 @@ var nbAste = lvl*3;
 	tabAste.push(new Asteroid(astePv,asteTaille,asteX,asteZ,asterotY,ambientLight,scene));
 }
 
+
 function gestionAsteroid() {
+
 		var asterotX=0.02;
 		var asterotZ=0.02;
 		var vitAste=0.1;
@@ -72,9 +71,6 @@ function gestionAsteroid() {
 						tabAste[i].deplacementAste(vitAste);
 						}
 	}
-
-
-
 
 
 
@@ -107,26 +103,33 @@ var controls = new THREE.OrbitControls(camera);
 			function animate() {
 				globtime = Date.now();
 
+
 				requestAnimationFrame( animate );
 
 
 
 
+
 				//animate Vaisseau
-				velocity(spaceship,spaceVelo);
+				if (spacedetruit==false) {
+					velocity(spaceship,spaceVelo);
+				}
+
 
 				// animate mvt des objet
 				mouvement(spaceship,keyboard,spaceVelo,accspaceship,scene,);
 
 				//gestion des tires
-
+				ecran(spaceship);
 				déplacementRocket(scene,spaceship);
 				gestionColli(scene,ambientLight);
 				mortRocket(scene,spaceship);
 
 				//gestion asteroids
-
 					gestionAsteroid();
+					//gestion hautecran
+
+
 				renderer.render( scene, camera);
 
 
